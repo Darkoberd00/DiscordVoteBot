@@ -1,0 +1,46 @@
+[
+  {
+    "counter_a": 1,
+    "counter_b": 0,
+    "votetuser": [
+      "213758917380014082"
+    ],
+    "uuid": "cdde24bb-15dc-418c-9885-343fb7c82012",
+    "titel": "1",
+    "antwort_a": "2",
+    "antwort_b": "3",
+    "userid": 213758917380014082,
+    "massageid": 869292171478573166,
+    "guildid": 808768354110144602,
+    "channelid": 808768354730115114
+  },
+  {
+    "counter_a": 0,
+    "counter_b": 0,
+    "votetuser": [],
+    "uuid": "373ee7d8-57e1-498c-9894-2d6fd94fc3cd",
+    "titel": "1",
+    "antwort_a": "2",
+    "antwort_b": "3",
+    "userid": 213758917380014082,
+    "massageid": 869295990430117999,
+    "guildid": 808768354110144602,
+    "channelid": 808768354730115114
+  },
+  {
+    "counter_a": 2,
+    "counter_b": 0,
+    "votetuser": [
+      "216525674121265153",
+      "213758917380014082"
+    ],
+    "uuid": "2350d24e-83a0-4bea-a26c-a7deb5285845",
+    "titel": "A",
+    "antwort_a": "b",
+    "antwort_b": "c",
+    "userid": 216525674121265153,
+    "massageid": 869296095245778994,
+    "guildid": 808768354110144602,
+    "channelid": 808768354730115114
+  }
+]

@@ -5,6 +5,7 @@ import discordbot.listner.ReactionListener;
 import discordbot.commands.VoteCMD;
 import discordbot.commands.CommandHandler;
 import discordbot.commands.CommandListener;
+import discordbot.utils.JsonVote;
 import discordbot.utils.Vote;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -24,8 +25,8 @@ public class Main {
     private static ArrayList<Vote> voteList = new ArrayList<>();
     private static HashMap<String, Vote> createVote = new HashMap<>();
 
-
     public static void main(String[] args) {
+        JsonVote.load();
         try {
             start();
         }catch (LoginException | IllegalArgumentException e){
@@ -42,7 +43,6 @@ public class Main {
                 while ((line = reader.readLine()) != null) {
                     if (line.equalsIgnoreCase("exit")) {
                         if (jda != null) {
-
                             reader.close();
                             jda.shutdown();
                             System.out.println("Der Bot geht Offline");
@@ -55,7 +55,7 @@ public class Main {
     }
 
     private static void start() throws LoginException, IllegalArgumentException{
-        builder = JDABuilder.createDefault("ODY2NDMzMzk1ODkzNjAwMjU3.YPSe-w.dPrwsKzroyE5Z3oZGqB7nx5Pt6w");
+        builder = JDABuilder.createDefault("token");
         builder.setActivity(Activity.listening(PREFIX+"vote"));
         builder.setStatus(OnlineStatus.ONLINE);
         addCommands();
@@ -64,6 +64,18 @@ public class Main {
         builder.addEventListeners(new PrivateChatListener());
         jda = builder.build();
 
+    }
+
+    public static HashMap<String, Vote> getCreateVote() {
+        return createVote;
+    }
+
+    public static void setVoteList(ArrayList<Vote> voteList) {
+        Main.voteList = voteList;
+    }
+
+    public static void setCreateVote(HashMap<String, Vote> createVote) {
+        Main.createVote = createVote;
     }
 
     private static void addCommands() {

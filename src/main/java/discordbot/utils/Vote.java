@@ -9,22 +9,35 @@ import java.util.UUID;
 
 public class Vote {
 
-    int counter_a = 0;
-    int counter_b = 0;
-    ArrayList<String> votetuser = new ArrayList<>();
+    private int counter_a = 0;
+    private int counter_b = 0;
+    private ArrayList<String> votetuser = new ArrayList<>();
+    private UUID uuid;
+    private String titel = "";
+    private String antwort_a = "";
+    private String antwort_b = "";
+    private long userid;
+    private long massageid;
+    private long guildid;
+    private long channelid;
 
-    //wichtig
-    UUID uuid;
-    String titel;
-    String antwort_a;
-    String antwort_b;
-
-
-    long userid;
-    long massageid;
-    long guildid;
-    long channelid;
-    boolean messageout = false;
+    public Vote(int counter_a, int counter_b, ArrayList<String> votetuser,
+                UUID uuid, String titel, String antwort_a, String antwort_b,
+                long userid, long massageid, long guildid, long channelid) {
+        this.counter_a = counter_a;
+        this.counter_b = counter_b;
+        if(votetuser != null){
+            this.votetuser = votetuser;
+        }
+        this.uuid = uuid;
+        this.titel = titel;
+        this.antwort_a = antwort_a;
+        this.antwort_b = antwort_b;
+        this.userid = userid;
+        this.massageid = massageid;
+        this.guildid = guildid;
+        this.channelid = channelid;
+    }
 
     public Vote(long guildid, long channelid, long userid){
         uuid = UUID.randomUUID();
@@ -87,15 +100,11 @@ public class Vote {
     }
 
     public boolean isMessageout() {
-        return messageout;
+        return (!titel.isEmpty() && !antwort_b.isEmpty() && !antwort_a.isEmpty());
     }
 
     public void addVotetUserID(String user){
         votetuser.add(user);
-    }
-
-    public void messageout(){
-        messageout = true;
     }
 
     public void addCounter_a(){ counter_a++; }
@@ -103,7 +112,7 @@ public class Vote {
 
     public EmbedBuilder voteEmbed(){
         EmbedBuilder eb = new EmbedBuilder();
-        String url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfGidWLwQPfUtQejGvHdItpLhQ_6TuDlQJ2w&usqp=CAU";
+        String url = "https://i.imgur.com/Y9pqh1E.jpg";
         String username = "Anonymous";
 
         try {
@@ -122,7 +131,6 @@ public class Vote {
         double max = counter_a + counter_b;
 
         if(!(counter_a == 0 && counter_b == 0)){
-
             if(counter_a > 0) {
                 double rechnung_a = counter_a / (max / 100);
                 value_a = Math.round(rechnung_a)+"%";
@@ -131,12 +139,13 @@ public class Vote {
                 double rechnung_b = counter_b / (max / 100);
                 value_b = Math.round(rechnung_b)+"%";
             }
-
         }
 
         eb.addField("🅰 "+ antwort_a + ":", value_a,false);
         eb.addField("🅱 "+ antwort_b + ":", value_b,false);
         eb.setFooter("Wetten: "+ (int)(max) +" UUID: " + uuid);
+
+        JsonVote.save();
 
         return eb;
     }
