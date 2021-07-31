@@ -1,7 +1,10 @@
 package discordbot.utils;
 
+import discordbot.main.Main;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.MessageEmbed;
+import net.dv8tion.jda.api.entities.TextChannel;
 
 import java.awt.*;
 
@@ -46,6 +49,18 @@ public class Utils {
         return eb.build();
     }
 
+    public static MessageEmbed MassageEmbedWrongLangthDeleteVoteCMD(){
+        eb = new EmbedBuilder();
+
+        eb.setColor(Color.RED);
+        eb.setTitle("Bei deinem Command stümmt etwas nicht!");
+        eb.addField("Woran kann es liegen?","Hast du die syntax eingehalten: !VoteDelete <UUID>",true);
+        eb.addField("Was ist die UUID?", "Die UUID wird jedem Vote zugeteilt. So das der Ersteller sie besser Zuordenen,Editieren und Löschen kann.", false);
+        eb.addField("Wo ist die UUID?", "Die UUID ist immer im Footer der Nachricht. Sie ist direkt mit \"UUID: <UUID>\" makiert." ,false);
+
+        return eb.build();
+    }
+
     public static MessageEmbed MassageEmbedErrorCreateVote(){
 
         eb = new EmbedBuilder();
@@ -53,6 +68,24 @@ public class Utils {
         eb.setTitle("Du Erstellst gerade schon ein Vote!");
         eb.addField("Was kann ich tun?", "Ganz simpel! Geh unter deine DMs und schau ob der Bot dir eine nachricht geschrieben hat.", false);
         eb.addField("Wenn nein?", "Kontaktiere den Besitzer des Bots", false);
+
+        return eb.build();
+    }
+
+    public static MessageEmbed MassageEmbedDeletedVote(Vote vote){
+        eb = new EmbedBuilder();
+
+        Guild guild = Main.getJda().getGuildById(vote.getGuildID());
+        TextChannel textChannel = guild.getTextChannelById(vote.getChannelID());
+
+        eb.setColor(Color.GREEN);
+        eb.setTitle("Dein Vote mit der UUID: " + vote.getUUID() + " wurde erfolgreich Gelöscht!");
+        eb.addField("Server:", guild.getName(), false);
+        eb.addField("Channelname:", textChannel.getName(), false);
+        eb.addField("Titel:", vote.getTitel(), false);
+        eb.addField("Antword A:", vote.getAntwort_a(), false);
+        eb.addField("Antword B:", vote.getAntwort_b(), false);
+        eb.addField("Anzahl Votes:",vote.getVotetuser().size() + " Votes",false);
 
         return eb.build();
     }

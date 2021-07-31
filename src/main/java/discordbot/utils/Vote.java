@@ -143,7 +143,7 @@ public class Vote {
 
         eb.addField("🅰 "+ antwort_a + ":", value_a,false);
         eb.addField("🅱 "+ antwort_b + ":", value_b,false);
-        eb.setFooter("Wetten: "+ (int)(max) +" UUID: " + uuid);
+        eb.setFooter("Votes: "+ (int)(max) +" UUID: " + uuid);
 
         JsonVote.save();
 

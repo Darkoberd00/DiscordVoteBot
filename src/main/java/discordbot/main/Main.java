@@ -1,5 +1,6 @@
 package discordbot.main;
 
+import discordbot.commands.VoteDeleteCMD;
 import discordbot.listner.PrivateChatListener;
 import discordbot.listner.ReactionListener;
 import discordbot.commands.VoteCMD;
@@ -55,7 +56,7 @@ public class Main {
     }
 
     private static void start() throws LoginException, IllegalArgumentException{
-        builder = JDABuilder.createDefault("token");
+        builder = JDABuilder.createDefault("ODY2NDMzMzk1ODkzNjAwMjU3.YPSe-w.DH4YEmF76ihmeiN_EfXpSYYg93k");
         builder.setActivity(Activity.listening(PREFIX+"vote"));
         builder.setStatus(OnlineStatus.ONLINE);
         addCommands();
@@ -80,6 +81,7 @@ public class Main {
 
     private static void addCommands() {
         CommandHandler.commands.put("vote", new VoteCMD());
+        CommandHandler.commands.put("votedelete", new VoteDeleteCMD());
     }
 
     public static JDA getJda() {

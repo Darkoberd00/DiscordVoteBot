@@ -1,45 +1,31 @@
 [
   {
+    "counter_a": 0,
+    "counter_b": 1,
+    "votetuser": [
+      "213758917380014082"
+    ],
+    "uuid": "efce02f8-32b7-45cd-9b75-d61a1f8e5c12",
+    "titel": "1",
+    "antwort_a": "2",
+    "antwort_b": "3",
+    "userid": 213758917380014082,
+    "massageid": 869583126614138921,
+    "guildid": 808768354110144602,
+    "channelid": 808768354730115114
+  },
+  {
     "counter_a": 1,
     "counter_b": 0,
     "votetuser": [
       "213758917380014082"
     ],
-    "uuid": "cdde24bb-15dc-418c-9885-343fb7c82012",
-    "titel": "1",
-    "antwort_a": "2",
-    "antwort_b": "3",
+    "uuid": "2b660b2c-b619-4297-90c8-d68f690391d9",
+    "titel": "Soll der Bot ein festen Channel bekommen?",
+    "antwort_a": "Ja unbedingt das Leute den bot nicht immer und überall benutzen können!",
+    "antwort_b": "Nein auf gar keinen Fall es stört nicht!",
     "userid": 213758917380014082,
-    "massageid": 869292171478573166,
-    "guildid": 808768354110144602,
-    "channelid": 808768354730115114
-  },
-  {
-    "counter_a": 0,
-    "counter_b": 0,
-    "votetuser": [],
-    "uuid": "373ee7d8-57e1-498c-9894-2d6fd94fc3cd",
-    "titel": "1",
-    "antwort_a": "2",
-    "antwort_b": "3",
-    "userid": 213758917380014082,
-    "massageid": 869295990430117999,
-    "guildid": 808768354110144602,
-    "channelid": 808768354730115114
-  },
-  {
-    "counter_a": 2,
-    "counter_b": 0,
-    "votetuser": [
-      "216525674121265153",
-      "213758917380014082"
-    ],
-    "uuid": "2350d24e-83a0-4bea-a26c-a7deb5285845",
-    "titel": "A",
-    "antwort_a": "b",
-    "antwort_b": "c",
-    "userid": 216525674121265153,
-    "massageid": 869296095245778994,
+    "massageid": 869592242711576597,
     "guildid": 808768354110144602,
     "channelid": 808768354730115114
   }

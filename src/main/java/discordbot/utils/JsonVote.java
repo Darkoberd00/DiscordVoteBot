@@ -28,6 +28,8 @@ public class JsonVote {
             if(list != null){
                 Main.setVoteList(list);
             }
+            hashMapReader.close();
+            listReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
