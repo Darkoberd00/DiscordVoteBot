@@ -1,61 +1,47 @@
 [
   {
-    "counter_a": 0,
+    "counter_a": 1,
+    "counter_b": 0,
+    "votetuser": [
+      "213758917380014082"
+    ],
+    "uuid": "b879055c-062c-4f8e-a765-351dec5c4b2c",
+    "titel": "1",
+    "antwort_a": "2",
+    "antwort_b": "3",
+    "userid": 213758917380014082,
+    "massageid": 871513624760443020,
+    "guildid": 808768354110144602,
+    "channelid": 808768354730115114
+  },
+  {
+    "counter_a": 1,
+    "counter_b": 0,
+    "votetuser": [
+      "213758917380014082"
+    ],
+    "uuid": "497537a0-b888-4e4d-9922-e29b4129fa03",
+    "titel": "1",
+    "antwort_a": "2",
+    "antwort_b": "3",
+    "userid": 213758917380014082,
+    "massageid": 871514029963772034,
+    "guildid": 808768354110144602,
+    "channelid": 808768354730115114
+  },
+  {
+    "counter_a": 1,
     "counter_b": 1,
     "votetuser": [
+      "216525674121265153",
       "213758917380014082"
     ],
-    "uuid": "efce02f8-32b7-45cd-9b75-d61a1f8e5c12",
+    "uuid": "f79394d5-5892-4959-b833-d72e5bdbf2bf",
     "titel": "1",
     "antwort_a": "2",
     "antwort_b": "3",
     "userid": 213758917380014082,
-    "massageid": 869583126614138921,
-    "guildid": 808768354110144602,
-    "channelid": 808768354730115114
-  },
-  {
-    "counter_a": 1,
-    "counter_b": 0,
-    "votetuser": [
-      "213758917380014082"
-    ],
-    "uuid": "2b660b2c-b619-4297-90c8-d68f690391d9",
-    "titel": "Soll der Bot ein festen Channel bekommen?",
-    "antwort_a": "Ja unbedingt das Leute den bot nicht immer und überall benutzen können!",
-    "antwort_b": "Nein auf gar keinen Fall es stört nicht!",
-    "userid": 213758917380014082,
-    "massageid": 869592242711576597,
-    "guildid": 808768354110144602,
-    "channelid": 808768354730115114
-  },
-  {
-    "counter_a": 1,
-    "counter_b": 0,
-    "votetuser": [
-      "213758917380014082"
-    ],
-    "uuid": "77ce1e85-8a5b-432b-b964-ac95b4566f02",
-    "titel": "1",
-    "antwort_a": "23",
-    "antwort_b": "4",
-    "userid": 213758917380014082,
-    "massageid": 871511663705227305,
-    "guildid": 808768354110144602,
-    "channelid": 808768354730115114
-  },
-  {
-    "counter_a": 1,
-    "counter_b": 0,
-    "votetuser": [
-      "213758917380014082"
-    ],
-    "uuid": "0f7b5d0a-5f44-49ce-b96e-414e986d2a74",
-    "titel": "1",
-    "antwort_a": "2",
-    "antwort_b": "3",
-    "userid": 213758917380014082,
-    "massageid": 871511948552974366,
+    "massageid": 871514914819289108,
     "guildid": 808768354110144602,
     "channelid": 808768354730115114
   }

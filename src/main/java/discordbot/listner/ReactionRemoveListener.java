@@ -11,24 +11,25 @@ public class ReactionRemoveListener extends ListenerAdapter {
     @Override
     public void onMessageReactionRemove(@NotNull MessageReactionRemoveEvent event) {
 
+        System.out.println("test");
         if(event.isFromGuild() && event.getMember().getIdLong() != Main.getJda().getSelfUser().getIdLong()){
 
             for (Vote vote : Main.getVoteList()){
-
+                System.out.println("i am in");
                 if(vote.isMessageout()){
 
                     if(vote.getMassageID() == event.getMessageIdLong()){
-
-                        if(vote.getVotetuser().equals(event.getUser().getId())){
-
+                        System.out.println("gleich");
+                        if(vote.getVotetuser().contains(event.getUser().getId())){
+                            System.out.println("ja");
                             if(event.getReactionEmote().getAsReactionCode().equals("🅰")){
-
+                                System.out.println("a remove");
                                 vote.minusCounter_a();
                                 vote.removeVotetUserID(event.getUser().getId());
                                 vote.refashVote();
 
                             }else if(event.getReactionEmote().getAsReactionCode().equals("🅱")){
-
+                                System.out.println("b remove");
                                 vote.minusCounter_b();
                                 vote.removeVotetUserID(event.getUser().getId());
                                 vote.refashVote();
