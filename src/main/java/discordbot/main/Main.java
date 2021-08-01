@@ -23,10 +23,13 @@ public class Main {
     private static JDA jda;
     private static JDABuilder builder;
 
+    private static String token;
+
     private static ArrayList<Vote> voteList = new ArrayList<>();
     private static HashMap<String, Vote> createVote = new HashMap<>();
 
     public static void main(String[] args) {
+        token = args[0];
         JsonVote.load();
         try {
             start();
@@ -56,7 +59,7 @@ public class Main {
     }
 
     private static void start() throws LoginException, IllegalArgumentException{
-        builder = JDABuilder.createDefault("ODY2NDMzMzk1ODkzNjAwMjU3.YPSe-w.DH4YEmF76ihmeiN_EfXpSYYg93k");
+        builder = JDABuilder.createDefault(token);
         builder.setActivity(Activity.listening(PREFIX+"vote"));
         builder.setStatus(OnlineStatus.ONLINE);
         addCommands();
