@@ -6,6 +6,7 @@ import discordbot.listner.ReactionListener;
 import discordbot.commands.VoteCMD;
 import discordbot.commands.CommandHandler;
 import discordbot.commands.CommandListener;
+import discordbot.listner.ReactionRemoveListener;
 import discordbot.utils.JsonVote;
 import discordbot.utils.Vote;
 import net.dv8tion.jda.api.JDA;
@@ -18,8 +19,15 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * @Author: Darkoberd00
+ */
 public class Main {
+    /**
+     * Der Prefix mit was der Command gestarte wird.
+     */
     public static String PREFIX = "!";
+
     private static JDA jda;
     private static JDABuilder builder;
 
@@ -66,6 +74,7 @@ public class Main {
         builder.addEventListeners(new CommandListener());
         builder.addEventListeners(new ReactionListener());
         builder.addEventListeners(new PrivateChatListener());
+        builder.addEventListeners(new ReactionRemoveListener());
         jda = builder.build();
 
     }

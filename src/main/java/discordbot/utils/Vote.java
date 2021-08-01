@@ -9,16 +9,59 @@ import java.util.UUID;
 
 public class Vote {
 
+    /**
+     * Anzahl Votetuser die für 🅰 abgestümmt haben.
+     */
     private int counter_a = 0;
+
+    /**
+     * Anzahl Votetuser die für 🅱 abgestümmt haben.
+     */
     private int counter_b = 0;
+
+    /**
+     * Liste der Gevotetenuser.
+     */
     private ArrayList<String> votetuser = new ArrayList<>();
+
+    /**
+     * Unique ID für den Vote.
+     */
     private UUID uuid;
+
+    /**
+     * Titel der Wette.
+     */
     private String titel = "";
+
+    /**
+     * Antwort für 🅰.
+     */
     private String antwort_a = "";
+
+    /**
+     * Antwort für 🅱.
+     */
     private String antwort_b = "";
+
+    /**
+     * Die ID des users der den Vote erstellt hat.
+     */
     private long userid;
+
+    /**
+     * die Massage ID welche von Discord ist.
+     */
     private long massageid;
+
+    /**
+     * Server ID.
+     */
     private long guildid;
+
+    /**
+     * Channel ID.
+     */
     private long channelid;
 
     public Vote(int counter_a, int counter_b, ArrayList<String> votetuser,
@@ -107,8 +150,14 @@ public class Vote {
         votetuser.add(user);
     }
 
+    public void removeVotetUserID(String user){
+        votetuser.remove(user);
+    }
+
     public void addCounter_a(){ counter_a++; }
     public void addCounter_b(){ counter_b++; }
+    public void minusCounter_a() { counter_a--; }
+    public void minusCounter_b() { counter_b--; }
 
     public EmbedBuilder voteEmbed(){
         EmbedBuilder eb = new EmbedBuilder();
@@ -150,7 +199,10 @@ public class Vote {
         return eb;
     }
 
-    public void refashWette(){
+    /**
+     * Der Text des Votes wird erneuert und die anzeige der Votet users wird überarbeitet.
+     */
+    public void refashVote(){
         Main.getJda().getGuildById(getGuildID()).getTextChannelById(getChannelID()).editMessageEmbedsById(massageid, voteEmbed().build()).queue();
     }
 

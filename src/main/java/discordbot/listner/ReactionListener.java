@@ -21,13 +21,13 @@ public class ReactionListener extends ListenerAdapter {
 
                             vote.addCounter_a();
                             vote.addVotetUserID(event.getUser().getId());
-                            vote.refashWette();
+                            vote.refashVote();
 
                         }else if(event.getReactionEmote().getAsReactionCode().equals("🅱")){
 
                             vote.addCounter_b();
                             vote.addVotetUserID(event.getUser().getId());
-                            vote.refashWette();
+                            vote.refashVote();
 
                         }else{
                             event.getReaction().removeReaction(event.getUser()).queue();

@@ -28,5 +28,35 @@
     "massageid": 869592242711576597,
     "guildid": 808768354110144602,
     "channelid": 808768354730115114
+  },
+  {
+    "counter_a": 1,
+    "counter_b": 0,
+    "votetuser": [
+      "213758917380014082"
+    ],
+    "uuid": "77ce1e85-8a5b-432b-b964-ac95b4566f02",
+    "titel": "1",
+    "antwort_a": "23",
+    "antwort_b": "4",
+    "userid": 213758917380014082,
+    "massageid": 871511663705227305,
+    "guildid": 808768354110144602,
+    "channelid": 808768354730115114
+  },
+  {
+    "counter_a": 1,
+    "counter_b": 0,
+    "votetuser": [
+      "213758917380014082"
+    ],
+    "uuid": "0f7b5d0a-5f44-49ce-b96e-414e986d2a74",
+    "titel": "1",
+    "antwort_a": "2",
+    "antwort_b": "3",
+    "userid": 213758917380014082,
+    "massageid": 871511948552974366,
+    "guildid": 808768354110144602,
+    "channelid": 808768354730115114
   }
 ]

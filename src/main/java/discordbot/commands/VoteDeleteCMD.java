@@ -8,8 +8,9 @@ import discordbot.utils.Vote;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
-import java.util.UUID;
-
+/**
+ * Löschung des Votes via Command.
+ */
 public class VoteDeleteCMD implements Command {
     @Override
     public boolean called(String[] args, MessageReceivedEvent event) {

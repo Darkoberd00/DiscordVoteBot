@@ -8,6 +8,10 @@ import discordbot.utils.Vote;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
+/**
+ * Erstellung der Votes via Command.
+ * Weiterleitung ins PrivateChannel.
+ */
 public class VoteCMD implements Command {
     @Override
     public boolean called(String[] args, MessageReceivedEvent event) {
