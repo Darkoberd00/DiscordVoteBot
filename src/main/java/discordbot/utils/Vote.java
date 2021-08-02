@@ -1,11 +1,15 @@
 package discordbot.utils;
 
 import discordbot.main.Main;
+import io.github.pascalklassen.pokefuture.pokemon.Pokemon;
+import io.github.pascalklassen.pokefuture.utility.common.APIResource;
 import net.dv8tion.jda.api.EmbedBuilder;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Vote {
 
@@ -161,8 +165,10 @@ public class Vote {
 
     public EmbedBuilder voteEmbed(){
         EmbedBuilder eb = new EmbedBuilder();
+
         String url = "https://i.imgur.com/Y9pqh1E.jpg";
         String username = "Anonymous";
+
 
         try {
             url = Main.getJda().getUserById(userid).getAvatarUrl();

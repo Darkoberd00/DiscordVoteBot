@@ -6,6 +6,8 @@ import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
+
 public class ReactionListener extends ListenerAdapter {
 
     @Override
@@ -31,9 +33,11 @@ public class ReactionListener extends ListenerAdapter {
 
                         }else{
                             event.getReaction().removeReaction(event.getUser()).queue();
+
                         }
                     }else{
                         event.getReaction().removeReaction(event.getUser()).queue();
+                        Main.getUserFlag().put(event.getUser().getId(), "Remove from Listener");
                     }
                 }
             }

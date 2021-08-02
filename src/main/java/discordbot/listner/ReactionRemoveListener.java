@@ -22,22 +22,28 @@ public class ReactionRemoveListener extends ListenerAdapter {
                         System.out.println("gleich");
                         if(vote.getVotetuser().contains(event.getUser().getId())){
                             System.out.println("ja");
-                            if(event.getReactionEmote().getAsReactionCode().equals("🅰")){
+
+                            if(!Main.getUserFlag().isEmpty()) {
+                                    if(Main.getUserFlag().get(event.getUser().getId()).equals("Remove from Listener")){
+                                        Main.getUserFlag().remove(event.getUser().getId());
+                                        return;
+                                    }
+                            }
+
+                            if (event.getReactionEmote().getAsReactionCode().equals("🅰")) {
                                 System.out.println("a remove");
                                 vote.minusCounter_a();
                                 vote.removeVotetUserID(event.getUser().getId());
                                 vote.refashVote();
 
-                            }else if(event.getReactionEmote().getAsReactionCode().equals("🅱")){
+                            } else if (event.getReactionEmote().getAsReactionCode().equals("🅱")) {
                                 System.out.println("b remove");
                                 vote.minusCounter_b();
                                 vote.removeVotetUserID(event.getUser().getId());
                                 vote.refashVote();
-
                             }
 
                         }
-
                     }
 
                 }

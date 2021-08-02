@@ -1,47 +1,14 @@
 [
   {
-    "counter_a": 1,
+    "counter_a": 0,
     "counter_b": 0,
-    "votetuser": [
-      "213758917380014082"
-    ],
-    "uuid": "b879055c-062c-4f8e-a765-351dec5c4b2c",
+    "votetuser": [],
+    "uuid": "0196433b-8bcd-4eb5-91c8-837f1155c439",
     "titel": "1",
     "antwort_a": "2",
     "antwort_b": "3",
     "userid": 213758917380014082,
-    "massageid": 871513624760443020,
-    "guildid": 808768354110144602,
-    "channelid": 808768354730115114
-  },
-  {
-    "counter_a": 1,
-    "counter_b": 0,
-    "votetuser": [
-      "213758917380014082"
-    ],
-    "uuid": "497537a0-b888-4e4d-9922-e29b4129fa03",
-    "titel": "1",
-    "antwort_a": "2",
-    "antwort_b": "3",
-    "userid": 213758917380014082,
-    "massageid": 871514029963772034,
-    "guildid": 808768354110144602,
-    "channelid": 808768354730115114
-  },
-  {
-    "counter_a": 1,
-    "counter_b": 1,
-    "votetuser": [
-      "216525674121265153",
-      "213758917380014082"
-    ],
-    "uuid": "f79394d5-5892-4959-b833-d72e5bdbf2bf",
-    "titel": "1",
-    "antwort_a": "2",
-    "antwort_b": "3",
-    "userid": 213758917380014082,
-    "massageid": 871514914819289108,
+    "massageid": 871824500205948999,
     "guildid": 808768354110144602,
     "channelid": 808768354730115114
   }

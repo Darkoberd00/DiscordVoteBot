@@ -35,8 +35,10 @@ public class Main {
 
     private static ArrayList<Vote> voteList = new ArrayList<>();
     private static HashMap<String, Vote> createVote = new HashMap<>();
+    private static HashMap<String, String> userFlag = new HashMap<>();
 
     public static void main(String[] args) {
+
         token = args[0];
         JsonVote.load();
         try {
@@ -45,6 +47,7 @@ public class Main {
             System.err.println("Der BOT konnte nicht erstellt werden!");
         }
         shutdown();
+
     }
 
     private static void shutdown() {
@@ -81,6 +84,9 @@ public class Main {
 
     public static HashMap<String, Vote> getCreateVote() {
         return createVote;
+    }
+    public static HashMap<String, String> getUserFlag() {
+        return userFlag;
     }
 
     public static void setVoteList(ArrayList<Vote> voteList) {
