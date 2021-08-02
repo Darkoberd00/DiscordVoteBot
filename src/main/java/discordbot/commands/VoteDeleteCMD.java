@@ -20,6 +20,10 @@ public class VoteDeleteCMD implements Command {
     @Override
     public void action(String[] args, MessageReceivedEvent event) {
 
+        if(!Main.isChannel(event)){
+            return;
+        }
+
         if(args.length == 1){
 
             String uuid = args[0];

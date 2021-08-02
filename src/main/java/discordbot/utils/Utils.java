@@ -90,6 +90,28 @@ public class Utils {
         return eb.build();
     }
 
+    public static MessageEmbed MassageNotFromGuild(){
+        eb = new EmbedBuilder();
+
+        eb.setColor(Color.red);
+        eb.setThumbnail(Main.getJda().getSelfUser().getAvatarUrl());
+        eb.setAuthor("Dein Command muss über einem Discord Server Geschrieben werden", "https://gist.github.com/7743dc8f4f11a85cbeb8f6d6ec05f9b3.git", Main.getJda().getSelfUser().getAvatarUrl());
+        eb.setTitle("Dein Command muss über einem Discord Server Geschrieben werden");
+        eb.addField("Dein Command muss über einem Discord Server Geschrieben werden", "Dein Command muss über einem Discord Server Geschrieben werden" , true);
+        eb.addField("Dein Command muss über einem Discord Server Geschrieben werden", "Dein Command muss über einem Discord Server Geschrieben werden" , true);
+        eb.addField("Dein Command muss über einem Discord Server Geschrieben werden", "Dein Command muss über einem Discord Server Geschrieben werden" , true);
+        eb.addField("Dein Command muss über einem Discord Server Geschrieben werden", "Dein Command muss über einem Discord Server Geschrieben werden" , false);
+        eb.addField("Dein Command muss über einem Discord Server Geschrieben werden", "Dein Command muss über einem Discord Server Geschrieben werden" , false);
+        eb.addField("Dein Command muss über einem Discord Server Geschrieben werden", "Dein Command muss über einem Discord Server Geschrieben werden" , false);
+        eb.addField("Dein Command muss über einem Discord Server Geschrieben werden", "Dein Command muss über einem Discord Server Geschrieben werden" , true);
+        eb.addField("Dein Command muss über einem Discord Server Geschrieben werden", "Dein Command muss über einem Discord Server Geschrieben werden" , true);
+        eb.addField("Dein Command muss über einem Discord Server Geschrieben werden", "Dein Command muss über einem Discord Server Geschrieben werden" , true);
+
+        eb.setFooter("Wustest du das Dein Command nur auf einem Discord Server Funktioniert, Fun Fact!");
+
+        return eb.build();
+    }
+
 
 
 }

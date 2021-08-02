@@ -15,9 +15,9 @@ public class ReactionListener extends ListenerAdapter {
     if(event.isFromGuild() && event.getMember().getIdLong() != Main.getJda().getSelfUser().getIdLong())
         for (Vote vote : Main.getVoteList()){
             if(vote.isMessageout()){
-                System.out.println("test");
+                //System.out.println("test");
                 if(event.getMessageIdLong() == vote.getMassageID()){
-                    System.out.println("User:" + event.getUser().getName() + " " + vote.getUUID() + ":" + event.getReactionEmote().getAsReactionCode());
+                    //System.out.println("User:" + event.getUser().getName() + " " + vote.getUUID() + ":" + event.getReactionEmote().getAsReactionCode());
                     if(!vote.getVotetuser().contains(event.getUser().getId())){
                         if(event.getReactionEmote().getAsReactionCode().equals("🅰")){
 

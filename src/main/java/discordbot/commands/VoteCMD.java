@@ -21,11 +21,15 @@ public class VoteCMD implements Command {
     @Override
     public void action(String[] args, MessageReceivedEvent event) {
 
-        if(event.getChannelType().isGuild()) {
+        if(!Main.isChannel(event)){
+            return;
+        }
+
+        if (event.getChannelType().isGuild()) {
             Message massage = event.getMessage();
             User author = massage.getAuthor();
 
-            if(Main.getCreateVote().get(author.getId()) == null) {
+            if (Main.getCreateVote().get(author.getId()) == null) {
                 Vote vote = new Vote(massage.getGuild().getIdLong(), massage.getTextChannel().getIdLong(), author.getIdLong());
 
                 author.openPrivateChannel().queue(privateChannel -> {
@@ -33,16 +37,17 @@ public class VoteCMD implements Command {
                         vote.setMessageID(ebmessage.getIdLong());
                         Main.getCreateVote().put(author.getId(), vote);
                         JsonVote.save();
-                    }, e->{
+                    }, e -> {
                         event.getMessage().getTextChannel().sendMessageEmbeds(Utils.MassageEmbedErrorPrivateMassage()).queue();
                     });
                 });
-            }else{
+            } else {
                 event.getMessage().getTextChannel().sendMessageEmbeds(Utils.MassageEmbedErrorCreateVote()).queue();
             }
 
             massage.delete().queue();
         }
+
     }
 
     @Override
