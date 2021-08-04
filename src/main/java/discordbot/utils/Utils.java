@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.TextChannel;
 
 import java.awt.*;
+import java.util.Objects;
 
 public class Utils {
 
@@ -76,12 +77,12 @@ public class Utils {
         eb = new EmbedBuilder();
 
         Guild guild = Main.getJda().getGuildById(vote.getGuildID());
-        TextChannel textChannel = guild.getTextChannelById(vote.getChannelID());
+        TextChannel textChannel = Objects.requireNonNull(guild).getTextChannelById(vote.getChannelID());
 
         eb.setColor(Color.GREEN);
         eb.setTitle("Dein Vote mit der UUID: " + vote.getUUID() + " wurde erfolgreich Gelöscht!");
         eb.addField("Server:", guild.getName(), false);
-        eb.addField("Channelname:", textChannel.getName(), false);
+        eb.addField("Channelname:", Objects.requireNonNull(textChannel).getName(), false);
         eb.addField("Titel:", vote.getTitel(), false);
         eb.addField("Antword A:", vote.getAntwort_a(), false);
         eb.addField("Antword B:", vote.getAntwort_b(), false);
@@ -113,5 +114,14 @@ public class Utils {
     }
 
 
+    public static MessageEmbed MassageEmbedErrorDeletedVote(Vote vote) {
 
+        eb = new EmbedBuilder();
+
+        eb.setColor(Color.red);
+        eb.setTitle("Der Vote mit der UUID: " + vote.getUUID() + " ist nicht Dein Vote!");
+
+        return eb.build();
+
+    }
 }

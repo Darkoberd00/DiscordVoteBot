@@ -43,7 +43,9 @@ public class VoteDeleteCMD implements Command {
                         JsonVote.save();
 
                     }else{
-
+                        user.openPrivateChannel().queue(privateChannel -> {
+                            privateChannel.sendMessageEmbeds(Utils.MassageEmbedErrorDeletedVote(vote)).queue();
+                        });
                     }
 
                 }
@@ -53,6 +55,8 @@ public class VoteDeleteCMD implements Command {
         }else{
             event.getChannel().sendMessageEmbeds(Utils.MassageEmbedWrongLangthDeleteVoteCMD()).queue();
         }
+
+        event.getMessage().delete().queue();
 
     }
 

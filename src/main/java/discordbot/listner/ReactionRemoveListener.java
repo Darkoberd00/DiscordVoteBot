@@ -6,13 +6,15 @@ import net.dv8tion.jda.api.events.message.react.MessageReactionRemoveEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
 public class ReactionRemoveListener extends ListenerAdapter {
 
     @Override
     public void onMessageReactionRemove(@NotNull MessageReactionRemoveEvent event) {
 
         //System.out.println("test");
-        if(event.isFromGuild() && event.getMember().getIdLong() != Main.getJda().getSelfUser().getIdLong()){
+        if(event.isFromGuild() && Objects.requireNonNull(event.getMember()).getIdLong() != Main.getJda().getSelfUser().getIdLong()){
 
             for (Vote vote : Main.getVoteList()){
                 //System.out.println("i am in");

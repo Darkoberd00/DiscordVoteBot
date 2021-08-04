@@ -1,15 +1,12 @@
 package discordbot.utils;
 
 import discordbot.main.Main;
-import io.github.pascalklassen.pokefuture.pokemon.Pokemon;
-import io.github.pascalklassen.pokefuture.utility.common.APIResource;
 import net.dv8tion.jda.api.EmbedBuilder;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Objects;
 import java.util.UUID;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class Vote {
 
@@ -31,7 +28,7 @@ public class Vote {
     /**
      * Unique ID für den Vote.
      */
-    private UUID uuid;
+    private final UUID uuid;
 
     /**
      * Titel der Wette.
@@ -51,7 +48,7 @@ public class Vote {
     /**
      * Die ID des users der den Vote erstellt hat.
      */
-    private long userid;
+    private final long userid;
 
     /**
      * die Massage ID welche von Discord ist.
@@ -61,12 +58,12 @@ public class Vote {
     /**
      * Server ID.
      */
-    private long guildid;
+    private final long guildid;
 
     /**
      * Channel ID.
      */
-    private long channelid;
+    private final long channelid;
 
     public Vote(int counter_a, int counter_b, ArrayList<String> votetuser,
                 UUID uuid, String titel, String antwort_a, String antwort_b,
@@ -171,9 +168,9 @@ public class Vote {
 
 
         try {
-            url = Main.getJda().getUserById(userid).getAvatarUrl();
-            username = Main.getJda().getUserById(userid).getName();
-        }catch (NullPointerException e){
+            url = Objects.requireNonNull(Main.getJda().getUserById(userid)).getAvatarUrl();
+            username = Objects.requireNonNull(Main.getJda().getUserById(userid)).getName();
+        }catch (NullPointerException ignored){
         }
 
         eb.setAuthor(username, null, url);
@@ -209,7 +206,7 @@ public class Vote {
      * Der Text des Votes wird erneuert und die anzeige der Votet users wird überarbeitet.
      */
     public void refashVote(){
-        Main.getJda().getGuildById(getGuildID()).getTextChannelById(getChannelID()).editMessageEmbedsById(massageid, voteEmbed().build()).queue();
+        Objects.requireNonNull(Objects.requireNonNull(Main.getJda().getGuildById(getGuildID())).getTextChannelById(getChannelID())).editMessageEmbedsById(massageid, voteEmbed().build()).queue();
     }
 
 }

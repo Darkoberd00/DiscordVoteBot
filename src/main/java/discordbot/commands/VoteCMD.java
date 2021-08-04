@@ -46,6 +46,8 @@ public class VoteCMD implements Command {
             }
 
             massage.delete().queue();
+        } else {
+           event.getAuthor().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessageEmbeds(Utils.MassageNotFromGuild()).queue());
         }
 
     }

@@ -28,13 +28,12 @@ public class Main {
     public static String PREFIX = "!";
 
     private static JDA jda;
-    private static JDABuilder builder;
 
     private static String token;
 
     private static ArrayList<Vote> voteList = new ArrayList<>();
     private static HashMap<String, Vote> createVote = new HashMap<>();
-    private static HashMap<String, String> userFlag = new HashMap<>();
+    private static final HashMap<String, String> userFlag = new HashMap<>();
     private static HashMap<String, List<String>> UseingChannels = new HashMap<>();
 
     public static void main(String[] args) {
@@ -47,12 +46,11 @@ public class Main {
             System.err.println("Der BOT konnte nicht erstellt werden!");
         }
         shutdown();
-
     }
 
     private static void shutdown() {
         new Thread(() -> {
-            String line = "";
+            String line;
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             try {
                 while ((line = reader.readLine()) != null) {
@@ -65,12 +63,13 @@ public class Main {
                     }
                 }
             } catch (IOException e) {
+                System.err.println(e.getMessage());
             }
         }).start();
     }
 
     private static void start() throws LoginException, IllegalArgumentException{
-        builder = JDABuilder.createDefault(token);
+        JDABuilder builder = JDABuilder.createDefault(token);
         builder.setActivity(Activity.listening(PREFIX+"vote"));
         builder.setStatus(OnlineStatus.ONLINE);
         addCommands();
@@ -118,6 +117,15 @@ public class Main {
     }
 
     public static boolean isChannel(GenericMessageEvent event){
-        return Main.getUseingChannels().isEmpty() && Main.getUseingChannels().containsKey(event.getGuild().getId()) && Main.getUseingChannels().get(event.getGuild().getId()).contains(event.getChannel().getId());
+
+        if(!Main.getUseingChannels().isEmpty()){
+            if(Main.getUseingChannels().containsKey(event.getGuild().getId())){
+                if(!Main.getUseingChannels().get(event.getGuild().getId()).contains(event.getChannel().getId())){
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 }
